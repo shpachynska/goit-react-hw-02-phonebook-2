@@ -1,4 +1,12 @@
-// import React, { Component } from "react";
-// import React from "react";
+import React from "react";
 
-// export default Filter;
+const Filter = ({ value, onChange }) => (
+  <div>
+    <label>
+      Filter by name
+      <input type="text" value={value} onChange={onChange} />
+    </label>
+  </div>
+);
+
+export default Filter;
