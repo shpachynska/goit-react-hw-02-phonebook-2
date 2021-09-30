@@ -4,6 +4,7 @@ import React, { Component } from "react";
 class Form extends Component {
   state = {
     name: "",
+    number: "",
   };
 
   handleChange = (event) => {
@@ -14,13 +15,16 @@ class Form extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    this.props.onSubmit(this.state.name);
+    this.props.onSubmit(this.state);
 
     this.reset();
   };
 
   reset = () => {
-    this.setState({ name: "" });
+    this.setState({
+      name: "",
+      number: "",
+    });
   };
 
   render() {
@@ -38,6 +42,19 @@ class Form extends Component {
             onChange={this.handleChange}
           />
         </label>
+        <label>
+          <p>Number</p>
+          <input
+            type="tel"
+            name="number"
+            pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+            title="Номер телефона должен состоять цифр и может содержать пробелы, тире, круглые скобки и может начинаться с +"
+            required
+            value={this.state.number}
+            onChange={this.handleChange}
+          />
+        </label>
+
         <button type="submit">Add contact</button>
       </form>
     );

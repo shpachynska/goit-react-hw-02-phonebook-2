@@ -6,7 +6,8 @@ function ContactList({ contacts }) {
     <ul>
       {contacts.map((contact) => (
         <li className={styles.ContactList__item} key={contact.id}>
-          <span>{contact.name}:</span>
+          <span>{contact.name}:&nbsp;</span>
+          <span>{contact.number}</span>
         </li>
       ))}
     </ul>

@@ -9,13 +9,15 @@ class App extends Component {
   state = {
     contacts: [],
     name: "",
+    number: "",
   };
 
   addContact = (data) => {
     console.log(data);
     const contact = {
       id: shortid.generate(),
-      name: data,
+      name: data.name,
+      number: data.number,
     };
 
     this.setState((prevState) => ({
