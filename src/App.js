@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import React, { Component } from "react";
+import shortid from "shortid";
+import ContactList from "./components/ContactList/ContactList";
+// import Filter from "./components/Filter/Filter";
+import Form from "./components/Form/Form";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  state = {
+    contacts: [],
+    name: "",
+  };
+
+  addContact = (data) => {
+    console.log(data);
+    const contact = {
+      id: shortid.generate(),
+      name: data,
+    };
+
+    this.setState((prevState) => ({
+      contacts: [contact, ...prevState.contacts],
+    }));
+  };
+
+  render() {
+    return (
+      <div className="container">
+        <Form onSubmit={this.addContact} />
+        <ContactList contacts={this.state.contacts} />
+      </div>
+    );
+  }
 }
-
 export default App;
