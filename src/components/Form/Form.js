@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import styles from "./Form.module.css";
 // import shortid from "shortid";
 
 class Form extends Component {
@@ -54,7 +55,9 @@ class Form extends Component {
           />
         </label>
 
-        <button type="submit">Add contact</button>
+        <button className={styles.button} type="submit">
+          Add contact
+        </button>
       </form>
     );
   }
