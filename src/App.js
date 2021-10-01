@@ -44,12 +44,12 @@ class App extends Component {
     );
   };
 
-  deleteContact = (event) => {
-    this.setState({
-      contacts: this.state.contacts.filter(
-        (contact) => contact.id !== event.currentTarget.id
+  deleteContact = (contactId) => {
+    this.setState((prevState) => ({
+      contacts: prevState.contacts.filter(
+        (contact) => contact.id !== contactId
       ),
-    });
+    }));
   };
 
   render() {
