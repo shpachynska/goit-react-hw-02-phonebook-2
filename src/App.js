@@ -4,6 +4,7 @@ import shortid from "shortid";
 import ContactList from "./components/ContactList/ContactList";
 import Filter from "./components/Filter/Filter";
 import Form from "./components/Form/Form";
+import Container from "./components/Container/Container";
 
 class App extends Component {
   state = {
@@ -56,7 +57,7 @@ class App extends Component {
     const { filter } = this.state;
     const visibleContacts = this.getVisibleContacts();
     return (
-      <div className="container">
+      <Container>
         <div className="form-section">
           <b className="title">Phonebook</b>
           <div className="form">
@@ -71,7 +72,7 @@ class App extends Component {
             onDeleteContact={this.deleteContact}
           />
         </div>
-      </div>
+      </Container>
     );
   }
 }

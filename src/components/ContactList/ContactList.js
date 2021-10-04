@@ -3,7 +3,7 @@ import styles from "./ContactList.module.css";
 
 function ContactList({ contacts, onDeleteContact }) {
   return (
-    <ul>
+    <ul className={styles.ContactList}>
       {contacts.map((contact) => (
         <li className={styles.ContactList__item} key={contact.id}>
           <span>{contact.name}:&nbsp;</span>
